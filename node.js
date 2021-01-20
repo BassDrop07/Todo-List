@@ -1,9 +1,11 @@
-const http = require('http')
-const fs = require('fs')
+var express = require('express');
+var app = express();
+var path = require('path');
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'content-type': 'text/html' })
-  fs.createReadStream('index.html').pipe(res)
-})
+// viewed at http://localhost:8080
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
 
-server.listen(process.env.PORT || 3000)
+app.use(express.static('.'))
+app.listen(8080);

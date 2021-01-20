@@ -4,7 +4,7 @@
   "description": "",
   "main": "node.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node node.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   "author": "BassDrop07",
   "license": "MIT",
   "dependencies": {
-    "http-server": "^0.12.3"
+    "express": "^4.17.1"
   },
   "engines": {
     "node": "14.x"
