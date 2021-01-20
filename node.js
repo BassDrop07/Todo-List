@@ -8,4 +8,5 @@ app.get('/', function(req, res) {
 });
 
 app.use(express.static('.'))
-app.listen(80);
+app.listen(process.env.PORT || 3000, 
+	() => console.log("Server is running..."));
