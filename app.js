@@ -2,12 +2,13 @@ const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
 const filterOption = document.querySelector('.filter-todo');
+const syncButton = document.querySelector('.popUp-container');
 
 document.addEventListener('DOMContentLoaded',getTodos);
+document.addEventListener('DOMContentLoaded',genQrcode);
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteCheck);
 filterOption.addEventListener('click', filterTodo);
-
 
 function addTodo(event) {
     event.preventDefault();
@@ -137,4 +138,32 @@ function removeLocalTodos(todo){
     const todoIndex = todo.children[0].innerText;
     todos.splice(todos.indexOf(todoIndex), 1);
     localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+
+function genQrcode() {
+        //Generate QR Code
+        const qrCode = new QRCodeStyling({
+            width: 148,
+            height: 148,
+            data: "gieri",
+            dotsOptions: {
+                color: "black",
+                type: "square"
+            },
+            backgroundOptions: {
+                color: "white",
+            }
+        });
+        qrCode.append(document.getElementById("canvas"));
+}
+
+//Hide and show QR Code
+function syncTodos(todo){
+    event.preventDefault();
+    if (syncButton.style.display === "none") {
+        syncButton.style.display = "flex";
+    } else {
+        syncButton.style.display = "none";
+    }
 }

@@ -28,8 +28,14 @@
                         <option value="uncompleted">Un-completed</option>
                     </select>
                 </div>
+                <div class="sync-container">
+                    <div class="popUp-container">
+                        <div id="canvas"></div>
+                    </div>
+                    <button class="sync-button" onclick="syncTodos()">Sync</button>
+                </div>
             </form>
-        
+            
             <div class="todo-container">
                 <ul class="todo-list"></ul>
             </div>
@@ -38,5 +44,6 @@
     <div class="circle1"></div>
     <div class="circle2"></div>
     <script src="app.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script>
 </body>
 </html>
