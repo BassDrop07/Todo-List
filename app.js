@@ -22,6 +22,7 @@ function addTodo(event) {
     todoDiv.appendChild(newTodo);
 
     saveLocal(todoInput.value);
+    saveDb(todoInput.value);
 
     //Check button
     const completedButton = document.createElement('button');
@@ -84,6 +85,20 @@ function filterTodo(event) {
     });
 }
 
+
+async function saveDb(todo) {
+  const response = await fetch('http://localhost:3001/api', data ={}, {
+    method: 'POST',
+    mode: 'no-cors',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => console.log(data));
+}
 
 function saveLocal(todo) {
     let todos;

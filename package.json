@@ -13,7 +13,9 @@
   "author": "BassDrop07",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "pg-promise": "^10.9.1",
     "qrcode": "^1.4.4"
   },
   "engines": {
