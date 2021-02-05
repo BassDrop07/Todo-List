@@ -1,7 +1,7 @@
 # Todo-List
 A simple website where you can write the tasks that you need to complete.
 
-*Live*: https://bassdrop07-todo-list.herokuapp.com/
+*Live*: https://deltapy-todo-list.herokuapp.com/
 
 # Screeshots
 
