@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 body {
@@ -14,7 +13,6 @@ body {
 main {
     max-height: 100vh;
     min-height: 100vh;
-    /* max-width: 100vh; */
     min-width: 100vh;
     background: linear-gradient(to right top, #65dfc9, #6cdbeb);
     display: flex;
@@ -58,12 +56,9 @@ main {
 
 header, form {
     min-height:20vh;
-    /* max-width: 90vh; */
-    /* min-width: 70vh; */
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 form input, form button {
@@ -155,7 +150,6 @@ select {
     margin: 1rem;
     position: relative;
     overflow: hidden;
-
 }
 
 select {
@@ -180,46 +174,4 @@ select {
 .select:hover::after{
     background: white;
     color: #4cb0f3;
-}
-
-.sync-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    /* margin: 0 0 2rem; */
-}
-
-.sync-container button {
-    color:white;
-    background: #4cb0f3;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 2rem;
-    padding: 0.5rem;
-}
-
-.sync-container button:hover {
-    background:white;
-    color: #4cb0f3;
-}
-
-
-.popUp-container {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    min-height: 25vh;
-    width: 25vh;
-    top: 1%;
-    background: linear-gradient(to right bottom,
-    rgba(255,255,255,0.9), 
-    rgba(255,255,255,0.1));
-    border-radius: 2rem;
-    z-index: 2;
-}
-
-.popUp-container img {
-    max-width: 25vh;
 }

@@ -2,16 +2,17 @@ const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
 const filterOption = document.querySelector('.filter-todo');
-const syncButton = document.querySelector('.popUp-container');
 
 document.addEventListener('DOMContentLoaded',getTodos);
-document.addEventListener('DOMContentLoaded',genQrcode);
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteCheck);
 filterOption.addEventListener('click', filterTodo);
 
 function addTodo(event) {
     event.preventDefault();
+    if (todoInput.value == '') {
+        alert("Text Field can't be empty!");
+    } else {
 
     const todoDiv = document.createElement('div');
     todoDiv.classList.add("todo");
@@ -22,7 +23,6 @@ function addTodo(event) {
     todoDiv.appendChild(newTodo);
 
     saveLocal(todoInput.value);
-    saveDb(todoInput.value);
 
     //Check button
     const completedButton = document.createElement('button');
@@ -39,8 +39,8 @@ function addTodo(event) {
     todoList.appendChild(todoDiv);
 
     todoInput.value = "";
+    }
 }
-
 
 function deleteCheck(event) {
     const item = event.target;
@@ -83,21 +83,6 @@ function filterTodo(event) {
                 break;
         }
     });
-}
-
-
-async function saveDb(todo) {
-  const response = await fetch('http://localhost:3001/api', data ={}, {
-    method: 'POST',
-    mode: 'no-cors',
-    credentials: 'same-origin',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-  .then(response => response.json())
-  .then(data => console.log(data));
 }
 
 function saveLocal(todo) {
@@ -153,32 +138,4 @@ function removeLocalTodos(todo){
     const todoIndex = todo.children[0].innerText;
     todos.splice(todos.indexOf(todoIndex), 1);
     localStorage.setItem('todos', JSON.stringify(todos));
-}
-
-
-function genQrcode() {
-        //Generate QR Code
-        const qrCode = new QRCodeStyling({
-            width: 148,
-            height: 148,
-            data: "gieri",
-            dotsOptions: {
-                color: "black",
-                type: "square"
-            },
-            backgroundOptions: {
-                color: "white",
-            }
-        });
-        qrCode.append(document.getElementById("canvas"));
-}
-
-//Hide and show QR Code
-function syncTodos(todo){
-    event.preventDefault();
-    if (syncButton.style.display === "none") {
-        syncButton.style.display = "flex";
-    } else {
-        syncButton.style.display = "none";
-    }
 }
