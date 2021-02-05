@@ -24,6 +24,7 @@ main {
     background: white;
     min-height: 90vh;
     min-width: 90vh;
+    padding: 2rem;
     background: linear-gradient(to right bottom,
      rgba(255,255,255,0.3), 
     rgba(255,255,255,0.1));
